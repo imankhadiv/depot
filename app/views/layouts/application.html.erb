@@ -26,8 +26,20 @@
 
 			 <ul>
 				<li><a href="http://www....">Home</a></li>
-				<li><a href="http://www..../faq">Questions</a></li> <li><a href="http://www..../news">News</a></li> <li><a href="http://www..../contact">Contact</a></li>
+				<li><a href="http://www..../faq">Questions</a></li> <li><a href="http://www..../news">News</a></li>
+				<li><a href="http://www..../contact">Contact</a></li>
 			</ul>
+
+			<% if session[:user_id] %>
+				<ul>
+					<li><%= link_to 'orders', orders_path %></li>
+				    <li><%= link_to 'rders', products_path %></li>
+				    <li><%= link_to 'Orders', users_path %></li>
+				 </ul>
+				 <%= button_to 'logout', logout_path, method: :delete %>
+			<% end %>
+
+
 		 </div>
 		<div id="main"> 
 			<%= yield %>
